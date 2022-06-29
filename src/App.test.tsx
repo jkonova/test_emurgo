@@ -52,7 +52,7 @@ it('Upload Files', async () => {
     const input = screen.getByPlaceholderText(/input-image/i)
     userEvent.upload(input, file);
 
-    expect(input.files[0]).toStrictEqual(file)
-    expect(input.files.item(0)).toStrictEqual(file)
-    expect(input.files).toHaveLength(1)
+    expect((input as any).files[0]).toStrictEqual(file)
+    expect((input as any).files.item(0)).toStrictEqual(file)
+    expect((input as any).files).toHaveLength(1)
 });
